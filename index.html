@@ -79,7 +79,14 @@
     <div id="copyright">© by TienHoang</div>
 
     <div id="canvas-container"></div>
-    <video class="input_video" style="display:none"></video>
+    <video
+  class="input_video"
+  playsinline
+  muted
+  autoplay
+  style="display:none">
+</video>
+
     <canvas id="camera-preview"></canvas>
 
     <script>
@@ -479,6 +486,11 @@
             init3D();
 
             const video = document.getElementsByClassName('input_video')[0];
+            // ===== MOBILE CAMERA FIX =====
+video.setAttribute("playsinline", "");
+video.muted = true;
+video.autoplay = true;
+
             const canvas = document.getElementById('camera-preview');
             const ctx = canvas.getContext('2d');
             
